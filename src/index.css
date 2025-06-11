@@ -199,7 +199,7 @@ button:focus-visible {
 
 .benefit-content h2 {
   margin: 0;
-  font-size: 1.2rem; /* Ligeramente más grande */
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.4;
   color: #ffffff;
@@ -208,7 +208,7 @@ button:focus-visible {
 
 .benefit-content h3 {
   margin: 0;
-  font-size: 1.1rem; /* Ligeramente más grande */
+  font-size: 1.1rem; 
   font-weight: 500;
   line-height: 1.4;
   margin-bottom: var(--spacing-xs);
@@ -217,7 +217,7 @@ button:focus-visible {
 .benefit-content p {
   color: var(--text-secondary);
   margin: 0;
-  font-size: 0.9rem; /* Ligeramente más grande */
+  font-size: 0.9rem; 
   line-height: 1.6;
 }
 
@@ -226,19 +226,19 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: var(--spacing-2xl); /* Más padding */
+  padding: var(--spacing-2xl); 
   box-sizing: border-box;
 }
 
-/* Inputs con mejor espaciado */
+
 input {
-  padding: var(--spacing-lg) var(--spacing-md); /* Más espaciado interno */
+  padding: var(--spacing-lg) var(--spacing-md); 
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
   font-size: 1rem;
   width: 100%;
-  margin-top: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl); /* Más espacio debajo */
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xl); 
   background: var(--input-bg);
   color: var(--input-text);
   transition: var(--transition);
@@ -250,7 +250,7 @@ input:focus {
   outline: none;
   border-color: var(--link-color);
   background: #5b6572;
-  box-shadow: 0 0 0 4px rgba(0, 207, 255, 0.15); /* Sombra más visible */
+  box-shadow: 0 0 0 4px rgba(0, 207, 255, 0.15); 
 }
 
 input::placeholder {
@@ -258,11 +258,10 @@ input::placeholder {
   text-align: left;
 }
 
-/* Títulos con mejor espaciado */
 h1, h2, h3 {
   font-weight: 700;
-  margin-bottom: var(--spacing-lg); /* Espaciado consistente */
-  margin-top: var(--spacing-md); /* Espacio arriba también */
+  margin-bottom: var(--spacing-lg); 
+  margin-top: var(--spacing-md); 
   color: var(--text-primary);
 }
 
@@ -273,11 +272,10 @@ h1 {
   margin-top: var(--spacing-xl);
 }
 
-/* Párrafos con mejor espaciado */
 p {
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg); /* Más espacio entre párrafos */
-  line-height: 1.7; /* Mejor legibilidad */
+  margin-bottom: var(--spacing-lg); 
+  line-height: 1.7; 
 }
 
 .link {
@@ -293,13 +291,13 @@ p {
 
 label {
   display: block;
-  margin-bottom: var(--spacing-sm); /* Más espacio */
+  margin-bottom: var(--spacing-sm); 
   margin-top: var(--spacing-md);
   font-weight: 500;
 }
 
 .footer-terms {
-  margin-top: var(--spacing-3xl); /* Más separación */
+  margin-top: var(--spacing-3xl);
   padding-top: var(--spacing-xl);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
@@ -312,13 +310,13 @@ label {
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: var(--spacing-lg) var(--spacing-2xl); /* Espaciado consistente */
+  padding: var(--spacing-lg) var(--spacing-2xl); 
   font-size: 1rem;
   border-radius: 20px;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: var(--spacing-md); /* Separación entre botones */
+  margin-bottom: var(--spacing-md); 
 }
 
 .btn-celebrate {

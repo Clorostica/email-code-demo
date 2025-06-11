@@ -101,7 +101,7 @@ function Step1Connect({ onNext }) {
   return (
     <div style={containerStyle}>
       <h1 style={titleStyle}>Connect with Email</h1>
-
+        <h4 style={{ textAlign: 'center' }}>...and unlock the benefits!</h4>
       <input
         type="email"
         value={email}
