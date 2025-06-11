@@ -19,8 +19,16 @@
   --border-radius: 12px;
   --border-radius-large: 20px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --spacing-xs: 0.5rem;    
+  --spacing-sm: 0.75rem;  
+  --spacing-md: 1rem;      
+  --spacing-lg: 1.5rem;   
+  --spacing-xl: 2rem;      
+  --spacing-2xl: 2.5rem;  
+  --spacing-3xl: 3rem;    
+  --spacing-4xl: 4rem;     
+  --spacing-5xl: 5rem;
 }
-
 
 * {
   box-sizing: border-box;
@@ -33,35 +41,35 @@ body {
   background: var(--primary-gradient);
   color: var(--text-primary);
   min-height: 100vh;
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: var(--spacing-md);
 }
-
 
 .main-layout {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: var(--spacing-xl); 
 }
 
 .app-container {
   width: 100%;
   max-width: 420px;
   background: var(--surface);
-  padding: 2rem;
-  margin-bottom: 3.75rem;
+  padding: var(--spacing-3xl); 
+  margin: var(--spacing-5xl) 0; 
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-heavy);
   backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   position: relative;
   overflow: hidden;
-  margin-top: 3.75rem;
 }
+
 .app-container::before {
   content: '';
   position: absolute;
@@ -69,15 +77,15 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  margin-top: 3.75rem;
-  margin-top: 3.75rem;
   background: var(--secondary-gradient);
 }
 
 .subtitle {
   font-size: 2rem;
-  margin-bottom: 44px;
+  margin-bottom: var(--spacing-4xl); 
+  margin-top: var(--spacing-lg); 
 }
+
 
 a {
   color: var(--link-color);
@@ -85,12 +93,15 @@ a {
   font-weight: 500;
   transition: var(--transition);
   border-radius: 4px;
+  margin: 0 var(--spacing-xs); 
+  display: inline-block;
 }
 
 a:hover,
 a:focus {
   opacity: 0.8;
   text-decoration: underline;
+  background: rgba(255, 255, 255, 0.1); 
 }
 
 a:focus-visible {
@@ -98,11 +109,11 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-
 button {
   background: var(--accent-color);
   border: none;
-  padding: 0.875rem 1.75rem;
+  padding: var(--spacing-lg) var(--spacing-2xl); 
+  margin: var(--spacing-md) 0; 
   border-radius: var(--border-radius);
   font-size: 1rem;
   font-weight: 600;
@@ -112,7 +123,7 @@ button {
   box-shadow: var(--shadow-light);
   position: relative;
   overflow: hidden;
-  min-height: 44px;
+  min-height: 48px; 
   font-family: inherit;
   width: 100%;
 }
@@ -120,7 +131,7 @@ button {
 button:hover {
   background: var(--accent-hover);
   box-shadow: var(--shadow-medium);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 button:active {
@@ -137,12 +148,11 @@ button:focus-visible {
    COMPONENT STYLES
    ==================================================================== */
 
-/* Benefits List - Base Styles */
 .benefits-list {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--spacing-2xl); 
 }
 
 .benefit-item {
@@ -150,23 +160,31 @@ button:focus-visible {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--spacing-lg); 
+  padding: var(--spacing-md); 
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.benefit-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
 }
 
 .benefit-icon {
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
-  min-height: 44px;
-  background: var(--accent-color, #FFD700);
+  width: 52px; 
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  background: var(--accent-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem; 
   font-weight: 600;
   color: #000;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+  box-shadow: var(--shadow-medium); 
   flex-shrink: 0;
 }
 
@@ -176,28 +194,31 @@ button:focus-visible {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  max-width: calc(100% - 60px); /* Asegura que el texto no se desborde */
+  gap: var(--spacing-xs); 
 }
 
 .benefit-content h2 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Ligeramente más grande */
   font-weight: 600;
   line-height: 1.4;
   color: #ffffff;
+  margin-bottom: var(--spacing-xs);
 }
 
 .benefit-content h3 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Ligeramente más grande */
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-xs);
 }
 
 .benefit-content p {
   color: var(--text-secondary);
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.9rem; /* Ligeramente más grande */
+  line-height: 1.6;
 }
 
 .page-wrapper {
@@ -205,30 +226,31 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: var(--spacing-2xl); /* Más padding */
   box-sizing: border-box;
 }
 
+/* Inputs con mejor espaciado */
 input {
-  padding: 0.875rem 1rem;
+  padding: var(--spacing-lg) var(--spacing-md); /* Más espaciado interno */
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
   font-size: 1rem;
   width: 100%;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl); /* Más espacio debajo */
   background: var(--input-bg);
   color: var(--input-text);
   transition: var(--transition);
   font-family: inherit;
-  min-height: 44px;
+  min-height: 48px;
 }
 
 input:focus {
   outline: none;
   border-color: var(--link-color);
   background: #5b6572;
-  box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 207, 255, 0.15); /* Sombra más visible */
 }
 
 input::placeholder {
@@ -236,28 +258,33 @@ input::placeholder {
   text-align: left;
 }
 
+/* Títulos con mejor espaciado */
 h1, h2, h3 {
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-lg); /* Espaciado consistente */
+  margin-top: var(--spacing-md); /* Espacio arriba también */
   color: var(--text-primary);
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.5rem; /* Ligeramente más grande */
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
 }
 
-
+/* Párrafos con mejor espaciado */
 p {
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-lg); /* Más espacio entre párrafos */
+  line-height: 1.7; /* Mejor legibilidad */
 }
 
 .link {
   color: var(--link-color);
   text-decoration: none;
   transition: color 0.3s ease;
+  padding: var(--spacing-xs);
 }
 
 .link:hover {
@@ -266,36 +293,40 @@ p {
 
 label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: var(--spacing-sm); /* Más espacio */
+  margin-top: var(--spacing-md);
+  font-weight: 500;
 }
 
 .footer-terms {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
+  margin-top: var(--spacing-3xl); /* Más separación */
+  padding-top: var(--spacing-xl);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   text-align: center;
   font-size: 0.875rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .btn {
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: 14px 28px;
+  padding: var(--spacing-lg) var(--spacing-2xl); /* Espaciado consistente */
   font-size: 1rem;
   border-radius: 20px;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: var(--spacing-md); /* Separación entre botones */
 }
 
 .btn-celebrate {
   background-color: #988fd6;
   color: #220142;
-  margin-bottom: 12px;
+  margin-bottom: var(--spacing-md);
 }
+
 .btn-celebrate:hover {
   background-color: #7a70b8;
   transform: scale(1.05);
@@ -308,44 +339,51 @@ label {
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 .btn-dashboard:hover {
   background: #f59e0b;
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(251,191,36,0.7);
 }
+
 .centered-container {
   width: 100%;
   text-align: center;
   border-radius: 16px;
+  padding: var(--spacing-lg); /* Espaciado interno */
 }
+
 .plan-card-container {
-    flex-wrap: nowrap; 
-    justify-content: flex-start;
+  flex-wrap: nowrap; 
+  justify-content: flex-start;
+  gap: var(--spacing-lg); /* Espacio entre cards */
 }
+
 .plan-card {
   position: relative;
   border: 2px solid #a78bfa;
   border-radius: 16px;
-  padding: 24px;
+  padding: var(--spacing-2xl); 
   width: 350px;
-  height: 310px;
+  height: 340px; 
   cursor: pointer;
   background-color: #220142;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-md); 
   box-shadow: none;
   user-select: none;
+  margin: var(--spacing-md); 
 }
 
 .plan-card.selected {
   position: relative;
-  padding: 24px; 
+  padding: var(--spacing-2xl); 
   border-radius: 16px;
   background: linear-gradient(135deg, #facc15, #a78bfa);
-  box-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+  box-shadow: 0 0 15px rgba(250, 204, 21, 0.8); 
 }
 
 .plan-card.selected > .content {
@@ -353,10 +391,11 @@ label {
   border-radius: 12px; 
   height: 100%;
   width: 100%;
+  padding: var(--spacing-md); 
 }
 
 .plan-button {
-  padding: 14px 28px;
+  padding: var(--spacing-lg) var(--spacing-2xl);
   color: #1a1a2e;
   border: none;
   border-radius: 10px;
@@ -364,8 +403,9 @@ label {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  width: 50%;
+  width: 60%; 
   cursor: pointer;
+  margin-top: var(--spacing-md);
 }
 
 .plan-disabled {
@@ -380,31 +420,37 @@ label {
 .plan-selected {
   background-color: #FFD700;
 }
+
 .separator {
-  margin: 0 10px;
+  margin: 0 var(--spacing-md); 
   color: #ccc;
   user-select: none; 
 }
 
 /* ====================================================================
    DESKTOP LAYOUT (1024px+)
-   - Grid-based layout with sidebar
-   - Left-aligned benefits with full-size icons
-   - Enhanced spacing and typography
    ==================================================================== */
 @media (min-width: 1024px) {
   .main-layout {
-    padding: 2rem;
+    padding: var(--spacing-3xl);
   }
 
   .benefit-item {
-    justify-content: flex-start; /* Left-aligned on desktop */
+    justify-content: flex-start;
+    gap: var(--spacing-xl); 
   }
-   .benefits-list{
-      padding-top: 80px;
-   } 
+  
+  .benefits-list {
+    padding-top: var(--spacing-2xl);
+    gap: var(--spacing-3xl);
+  } 
+
   .benefit-icon {
-    margin-right: 1rem;
+    margin-right: var(--spacing-lg);
+    width: 56px; 
+    height: 56px;
+    min-width: 56px;
+    min-height: 56px;
   }
 
   .benefit-item:nth-child(1) { animation-delay: 0.2s; }
@@ -414,208 +460,233 @@ label {
   .app-container {
     max-width: 90%;
     display: grid;
-    grid-template-columns: 1fr 400px;
-    gap: 3rem;
-    padding: 3rem;
+    grid-template-columns: 1fr 420px;
+    gap: var(--spacing-4xl);
+    padding: var(--spacing-4xl);
     align-items: start;
   }
+  
   .centered-container {
-    padding-top: 20px;
+    padding-top: var(--spacing-xl);
   }
-    .modify-email-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: transparent;
-      border: 2px solid #9890D6;
-      color: #9890D6;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: bold;
-      display: inline-flex; 
-      align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
-      z-index: 1000;
-      width: auto; 
-      white-space: nowrap; 
-    }
+  
+  .modify-email-button {
+    position: fixed;
+    top: var(--spacing-xl);
+    left: var(--spacing-xl);
+    background: transparent;
+    border: 2px solid #9890D6;
+    color: #9890D6;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex; 
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    width: auto; 
+    white-space: nowrap;
+  }
 
-    .modify-email-button:hover {
-      background-color: #9890D6;
-      color: white;
-      box-shadow: 0 0 10px #a78bfa, 0 0 20px #7c3aed;
-      transform: scale(1.05);
-    }
+  .modify-email-button:hover {
+    background-color: #9890D6;
+    color: white;
+    box-shadow: 0 0 10px #a78bfa, 0 0 20px #7c3aed;
+    transform: scale(1.05);
+  }
 
-    .modify-email-button::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(167,139,250,0.3) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      border-radius: 8px;
-    }
+  .back-button {
+    background: transparent;
+    border: 2px solid #9890D6;
+    color: #9890D6;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .modify-email-button:hover::before {
-      opacity: 1;
-    }
-    .back-button {
-      background: transparent;
-      border: 2px solid #9890D6;
-      color: #9890D6;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      font-weight: bold;
-      line-height: 1;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
+  .back-button:hover {
+    background-color: #9890D6;
+    color: white;
+    box-shadow: 0 0 10px #a78bfa, 0 0 20px #7c3aed;
+    transform: scale(1.05);
+  }
 
-    .back-button:hover {
-      background-color: #9890D6;
-      color: white;
-      box-shadow: 0 0 10px #a78bfa, 0 0 20px #7c3aed;
-      transform: scale(1.05);
-    }
-
-    .back-button::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(167,139,250,0.3) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-      border-radius: 8px;
-    }
-
-    .back-button:hover::before {
-      opacity: 1;
-    }
   .form-section {
-    margin-top: 40px;
+    margin-top: var(--spacing-3xl);
     background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
+    padding: var(--spacing-3xl);
     border-radius: var(--border-radius-large);
     border: 1px solid var(--border);
-    text-align:center;
+    text-align: center;
   }
   
   .footer-terms {
     grid-column: 1 / -1;
-    margin-top: 2rem;
+    margin-top: var(--spacing-3xl);
     text-align: center;
   }
 }
 
 /* ====================================================================
    TABLET LAYOUT (768px - 1023px)
-   - Centered benefits list with medium icons
-   - Single-column layout with optimized spacing
-   - Balanced typography for mid-range screens
    ==================================================================== */
 @media (min-width: 768px) and (max-width: 1023px) {
   .benefit-item {
-    justify-content: center; /* Centered on tablet */
-    gap: 1rem;
-    margin-bottom: 1rem;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
   }
+  
   .benefits-list {
     text-align: center;
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding: var(--spacing-2xl) 0;
+    gap: var(--spacing-2xl);
   }
+  
   .benefit-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
   }
 
   .app-container {
-    margin-top: 80px;
+    margin-top: var(--spacing-5xl);
     max-width: 90%;
-    padding: 2.5rem;
+    padding: var(--spacing-3xl);
   }
   
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-align: center;
+    margin-bottom: var(--spacing-xl);
   }
   
-   h2 {
-    font-size: 1.2rem;
+  h2 {
+    font-size: 1.4rem;
     text-align: center;
+    margin-bottom: var(--spacing-lg);
   }
-   h3{
-      font-size: 1rem;
-      text-align: center;
+  
+  h3 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
   }
 
-   input {
+  input {
     text-align: left;
-   }
-     .modify-email-button {
-    margin-bottom: 5rem; 
+  }
+  
+  .modify-email-button {
+    margin-bottom: var(--spacing-5xl); 
   }
 }
 
 /* ====================================================================
    MOBILE LAYOUT (480px - 767px)
-   - Centered benefits with compact icons (36px)
-   - Optimized for touch interaction
-   - Prevents text overflow with calculated widths
    ==================================================================== */
 @media (min-width: 480px) and (max-width: 767px) {
   .app-container {
-    margin-top: 80px;
-    max-width: 90%;
-    padding: 1.5rem;
+    margin-top: var(--spacing-5xl);
+    max-width: 95%;
+    padding: var(--spacing-2xl);
   }
 
   .modify-email-button {
-    margin-bottom: 5rem; 
+    margin-bottom: var(--spacing-5xl); 
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-align: center;
+    margin-bottom: var(--spacing-xl);
   }
-   h2 {
-    font-size: 1.2rem;
+  
+  h2 {
+    font-size: 1.3rem;
     text-align: center;
+    margin-bottom: var(--spacing-lg);
   }
-  h3{
-      font-size: 1rem;
-      text-align: center;
+  
+  h3 {
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
   }
 
-  /* BENEFITS CENTERED IN MOBILE */
   .benefits-list {
     text-align: center;
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 30px;
+    padding: var(--spacing-1xl) 0;
+    gap: var(--spacing-xl);
   }
   
   .benefit-item {
-    justify-content: center; /* Complete centering */
-    gap: 0.75rem;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+  
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .benefit-content {
+    text-align: left;
+  }
+
+  .plan-card {
+    width: 100%;        
+    max-width: 350px;  
+    height: auto;       
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .plan-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* ====================================================================
+   MOBILE EXTRA SMALL (<480px)
+   ==================================================================== */
+@media (max-width: 479px) {
+  .app-container {
+    margin-top: var(--spacing-4xl);
+    max-width: 95%;
+    padding: var(--spacing-xl);
+  }
+
+  .benefits-list {
+    text-align: center;
+    width: 100%;
+    padding: var(--spacing-2xl) 0;
+    gap: var(--spacing-lg);
+  }
+  
+  .benefit-item {
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
   }
   
   .benefit-icon {
@@ -626,124 +697,69 @@ label {
     font-size: 1rem;
   }
 
-  .benefit-content {
-    text-align: left; /* Text stays left-aligned */
-    max-width: calc(100% - 52px); /* Adjust for smaller icon */
+  .benefit-content h2 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
   }
 
   .benefit-content h3 {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .benefit-content p {
+    font-size: 0.85rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+    padding-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
   }
   
-  input {
-    text-align: left;
-   }
   .plan-card {
     width: 100%;        
     max-width: 350px;  
     height: auto;       
-    padding: 16px;     
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
   }
 
   .plan-card-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: var(--spacing-md);
   }
 }
-
-/* ====================================================================
-   MOBILE EXTRA SMALL (<480px)
-   - Ultra-compact layout with smallest icons (32px)
-   - Maximum content density for tiny screens
-   - Minimal spacing with maintained readability
-   ==================================================================== */
-@media (max-width: 479px) {
-  .app-container {
-    margin-top: 80px;
-    max-width: 95%;
-    padding: 1rem;
-  }
-
-  .benefits-list {
-    text-align: center;
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  
-  .benefit-item {
-    justify-content: center; /* Complete centering */
-    gap: 0.5rem;
-  }
-  
-  .benefit-icon {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    min-height: 32px;
-    font-size: 0.9rem;
-  }
-
-  .benefit-content {
-    text-align: left;
-    max-width: calc(100% - 42px);
-  }
-
-  .benefit-content h2 {
-    font-size: 1rem;
-  }
-
-  .benefit-content h3 {
-    font-size: 0.9rem;
-  }
-
-  .benefit-content p {
-    font-size: 0.8rem;
-  }
-
-  h1 {
-    font-size: 1.3rem;
-  }
-
-  h2 {
-    font-size: 1.1rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-    padding-top: 30px;
-  }
-    .plan-card {
-    width: 100%;        
-    max-width: 350px;  
-    height: auto;       
-    padding: 16px;     
-  }
-
-  .plan-card-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
-  }
-}
-
 
 /* ====================================================================
    ACCESSIBILITY & ANIMATIONS
    ==================================================================== */
-@keyframes slideIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
-
+.benefit-item {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -757,16 +773,14 @@ label {
   }
   
   .benefit-item {
-    display: flex;
-    opacity: 1;
     animation: none;
+    opacity: 1;
   }
 }
 
-
 *:focus-visible {
   outline: 2px solid var(--link-color);
-  outline-offset: 2px;
+  outline-offset: 3px; 
 }
 
 .text-center {
@@ -774,9 +788,33 @@ label {
 }
 
 .mb-4 {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-xl);
 }
 
 .mt-4 {
-  margin-top: 1.5rem;
+  margin-top: var(--spacing-xl);
+}
+
+.py-4 {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+.px-4 {
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+}
+
+.gap-4 {
+  gap: var(--spacing-xl);
+}
+
+.section {
+  margin: var(--spacing-3xl) 0;
+  padding: var(--spacing-xl) 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-2xl);
 }

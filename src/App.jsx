@@ -66,7 +66,7 @@ function App() {
         </div>
       )}
 
-      <div className="app-container" style={{ paddingTop: '60px' }}>
+      <div className="app-container">
         <div className="benefits-list">
           <div className="benefit-item">
             <div className="benefit-icon">🎮</div>
