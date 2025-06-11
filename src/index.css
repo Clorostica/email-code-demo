@@ -494,6 +494,7 @@ label {
     color: white;
     box-shadow: 0 0 10px #a78bfa, 0 0 20px #7c3aed;
     transform: scale(1.05);
+    text-decoration: none;
   }
 
   .back-button {

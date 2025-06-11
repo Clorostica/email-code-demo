@@ -43,13 +43,13 @@ function App() {
     return (
       <div style={{ padding: '40px 20px', position: 'relative', minHeight: '100vh' }}>
         <div style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 999 }}>
-          <button
+          <a 
             onClick={goBackToStep2}
             className="modify-email-button"
-            aria-label="Back to verify email"
-          >
-            ←
-          </button>
+            aria-label="Back to verify email">
+             ←
+          </a>
+
         </div>
         <Step3ChoosePlan userId={userId} onNext={goToStep4} />
       </div>
@@ -60,9 +60,11 @@ function App() {
     <div className="main-layout" style={{ position: 'relative', minHeight: '100vh' }}>
       {step === 2 && (
         <div style={{ position: 'fixed', top: 20, left: 20, zIndex: 1000 }}>
-          <button onClick={goToStep1} className="modify-email-button">
-            ← Modify email
-          </button>
+          <a 
+            onClick={goToStep1} 
+            className="modify-email-button">
+              ← Modify email
+          </a>
         </div>
       )}
 
