@@ -1,9 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 function Step2Verify({ email, onNext }) {
   const [code, setCode] = useState('');
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [countdown, setCountdown] = useState(30);
+  const countdownRef = useRef(null);
+
+  useEffect(() => {
+    if (countdown > 0) {
+      countdownRef.current = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 1000);
+    }
+
+    return () => clearTimeout(countdownRef.current);
+  }, [countdown]);
 
   const handleVerify = async () => {
     if (!code.trim()) {
@@ -51,6 +63,7 @@ function Step2Verify({ email, onNext }) {
   };
 
   const handleResendCode = async () => {
+    if (countdown > 0) return; 
     try {
       const payload = { email };
       
@@ -65,6 +78,7 @@ function Step2Verify({ email, onNext }) {
       if (res.ok) {
         setError(null);
         alert('Code successfully resent');
+        setCountdown(30); 
       } else {
         setError(data.error || 'Error resending code');
       }
@@ -73,74 +87,26 @@ function Step2Verify({ email, onNext }) {
     }
   };
 
-  const containerStyle = {
-    maxWidth: '500px',
-    margin: '0 auto',
-    padding: '24px',
-    borderRadius: '8px',
-    fontFamily: 'Inter',
-  };
-
-  const titleStyle = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    marginBottom: '16px',
-    textAlign: 'center',
-  };
-
-  const textStyle = {
-    marginBottom: '16px',
-    textAlign: 'center',
-  };
-
-  const emailStyle = {
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: '24px',
-    color: '#fbbf24',
-  };
-
-  const inputStyle = {
-    backgroundColor: '#FFFFFF',
-    color: '#000000',
+  const containerStyle = { maxWidth: '500px', margin: '0 auto', padding: '24px', borderRadius: '8px', fontFamily: 'Inter' };
+  const textStyle = { marginBottom: '16px', textAlign: 'center' };
+  const emailStyle = { fontWeight: 'bold', textAlign: 'center', marginBottom: '24px', color: '#fbbf24' };
+  const inputStyle = { backgroundColor: '#FFFFFF', color: '#000000', width: '100%', padding: '12px', border: '2px solid #ddd', borderRadius: '6px', fontSize: '18px', marginBottom: '16px', outline: 'none', boxSizing: 'border-box' };
+  const buttonStyle = {
     width: '100%',
     padding: '12px',
-    border: '2px solid #ddd',
+    backgroundColor: loading || !code.trim() ? '#988fd6' : '#007bff',
+    color: 'rgb(34, 1, 66)',
+    border: 'none',
     borderRadius: '6px',
-    fontSize: '18px',
-    marginBottom: '16px',
-    outline: 'none',
-    boxSizing: 'border-box',
+    fontSize: '16px',
+    cursor: loading || !code.trim() ? 'not-allowed' : 'pointer',
+    marginTop: '16px',      
+    marginBottom: '16px',   
+    transition: 'background-color 0.3s',
   };
-
-    const buttonStyle = {
-      width: '100%',
-      padding: '12px',
-      backgroundColor: loading || !code.trim() ? '#988fd6' : '#007bff',
-      color: 'rgb(34, 1, 66)',
-      border: 'none',
-      borderRadius: '6px',
-      fontSize: '16px',
-      cursor: loading || !code.trim() ? 'not-allowed' : 'pointer',
-      marginTop: '16px',      
-      marginBottom: '16px',   
-      transition: 'background-color 0.3s',
-    };
-
-  const errorStyle = {
-    backgroundColor: '#fee',
-    border: '1px solid #fcc',
-    color: '#c33',
-    padding: '12px',
-    borderRadius: '6px',
-    marginBottom: '16px',
-    textAlign: 'center',
-  };
-
-  const resendContainerStyle = {
-    textAlign: 'center',
-    marginTop: '16px',
-  };
+  const errorStyle = { backgroundColor: '#fee', border: '1px solid #fcc', color: '#c33', padding: '12px', borderRadius: '6px', marginBottom: '16px', textAlign: 'center' };
+  const resendContainerStyle = { textAlign: 'center', marginTop: '16px' };
+  const resendLinkStyle = { cursor: countdown > 0 ? 'not-allowed' : 'pointer', color: countdown > 0 ? '#fbbf24' : '#00cfff', textDecoration: 'none' };
 
   return (
     <div style={containerStyle}>
@@ -173,8 +139,15 @@ function Step2Verify({ email, onNext }) {
       </button>
       
       <div style={resendContainerStyle}>
-        <a href="#" onClick={e => { e.preventDefault(); handleResendCode(); }} className="link">
-          Resend Code
+        <a 
+          href="#" 
+          onClick={e => { 
+            e.preventDefault(); 
+            if (countdown === 0) handleResendCode(); 
+          }} 
+          style={resendLinkStyle}
+        >
+          {countdown > 0 ? `Resend Code in ${countdown}s` : 'Resend Code'}
         </a>
       </div>
     </div>

@@ -13,7 +13,6 @@ function sendResponse(res, statusCode, data) {
   res.end(JSON.stringify(data));
 }
 
-// Enviar código de validación por email (simulado)
 function handleSendEmailValidationCode(req, res, query) {
   const email = query.email;
   if (!email || !email.includes('@')) {
@@ -23,13 +22,12 @@ function handleSendEmailValidationCode(req, res, query) {
   const code = '123456';
   emailMap[email] = { code, sentAt: Date.now() };
 
-  // Eliminar el código después de 5 minutos
   setTimeout(() => delete emailMap[email], 5 * 60 * 1000);
 
   sendResponse(res, 200, {});
 }
 
-// Validar email y código
+
 function handleValidateEmail(req, res, body) {
   const { email, code } = body;
   if (!email || !code) {
@@ -45,7 +43,7 @@ function handleValidateEmail(req, res, body) {
   sendResponse(res, 200, { user_id: userId });
 }
 
-// Obtener productos
+
 function handleGetProducts(req, res) {
   const products = {
     year: { price: 50, trial_days: 14 },
@@ -54,18 +52,18 @@ function handleGetProducts(req, res) {
   sendResponse(res, 200, products);
 }
 
-// Iniciar prueba gratis
+
 function handleStartTrial(req, res, body) {
   const { user_id, plan } = body;
   if (!user_id || !plan) {
     return sendResponse(res, 400, { error: 'Missing user_id or plan' });
   }
 
-  // Simulamos una suscripción exitosa
+
   sendResponse(res, 200, { success: true });
 }
 
-// Rutas disponibles
+
 const API_HANDLERS = {
   '/api/send-email-validation-code': handleSendEmailValidationCode,
   '/api/validate-email': handleValidateEmail,
@@ -73,7 +71,7 @@ const API_HANDLERS = {
   '/api/start-trial': handleStartTrial
 };
 
-// Crear servidor
+
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
   const path = parsedUrl.pathname.replace(/\/+$/, '');
@@ -110,6 +108,6 @@ const server = http.createServer((req, res) => {
   });
 });
 
-// Iniciar servidor en puerto 8080
+
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
