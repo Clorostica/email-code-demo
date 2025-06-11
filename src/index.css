@@ -60,8 +60,8 @@ body {
   width: 100%;
   max-width: 420px;
   background: var(--surface);
-  padding: var(--spacing-3xl); 
-  margin: var(--spacing-5xl) 0; 
+  padding: var(--spacing-xl); 
+  margin: var(--spacing-3xl) 0; 
   border-radius: var(--border-radius-large);
   box-shadow: var(--shadow-heavy);
   backdrop-filter: blur(20px);
@@ -100,14 +100,10 @@ a {
 a:hover,
 a:focus {
   opacity: 0.8;
-  text-decoration: underline;
+  text-decoration: none;
   background: rgba(255, 255, 255, 0.1); 
 }
 
-a:focus-visible {
-  outline: 2px solid var(--link-color);
-  outline-offset: 2px;
-}
 
 button {
   background: var(--accent-color);
@@ -229,23 +225,20 @@ button:focus-visible {
   padding: var(--spacing-2xl); 
   box-sizing: border-box;
 }
-
-
 input {
-  padding: var(--spacing-lg) var(--spacing-md); 
+  padding: var(--spacing-lg) var(--spacing-md);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
   font-size: 1rem;
   width: 100%;
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-xl); 
+  margin-top: var(--spacing-2xl);     
+  margin-bottom: var(--spacing-4xl); 
   background: var(--input-bg);
   color: var(--input-text);
   transition: var(--transition);
   font-family: inherit;
   min-height: 48px;
 }
-
 input:focus {
   outline: none;
   border-color: var(--link-color);
@@ -266,7 +259,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.5rem; /* Ligeramente más grande */
+  font-size: 2.5rem; 
   text-align: center;
   margin-bottom: var(--spacing-2xl);
   margin-top: var(--spacing-xl);
@@ -275,7 +268,7 @@ h1 {
 p {
   color: var(--text-secondary);
   margin-bottom: var(--spacing-lg); 
-  line-height: 1.7; 
+  line-height: 0.7; 
 }
 
 .link {
@@ -348,13 +341,13 @@ label {
   width: 100%;
   text-align: center;
   border-radius: 16px;
-  padding: var(--spacing-lg); /* Espaciado interno */
+  padding: var(--spacing-lg); 
 }
 
 .plan-card-container {
   flex-wrap: nowrap; 
   justify-content: flex-start;
-  gap: var(--spacing-lg); /* Espacio entre cards */
+  gap: var(--spacing-lg);
 }
 
 .plan-card {
@@ -363,7 +356,7 @@ label {
   border-radius: 16px;
   padding: var(--spacing-2xl); 
   width: 350px;
-  height: 340px; 
+  height: 320px; 
   cursor: pointer;
   background-color: #220142;
   transition: all 0.3s ease;
@@ -520,9 +513,7 @@ label {
   }
 
   .form-section {
-    margin-top: var(--spacing-3xl);
     background: rgba(255, 255, 255, 0.05);
-    padding: var(--spacing-3xl);
     border-radius: var(--border-radius-large);
     border: 1px solid var(--border);
     text-align: center;
@@ -598,9 +589,9 @@ label {
    ==================================================================== */
 @media (min-width: 480px) and (max-width: 767px) {
   .app-container {
-    margin-top: var(--spacing-5xl);
-    max-width: 95%;
-    padding: var(--spacing-2xl);
+  margin-top: var(--spacing-5xl);
+  padding: var(--spacing-lg);
+  max-width: 95%;
   }
 
   .modify-email-button {
@@ -670,17 +661,17 @@ label {
    ==================================================================== */
 @media (max-width: 479px) {
   .app-container {
-    margin-top: var(--spacing-4xl);
-    max-width: 95%;
-    padding: var(--spacing-xl);
-  }
+      margin-top: var(--spacing-4xl);
+      max-width: 95%;
+      padding: var(--spacing-md);
+    }
 
   .benefits-list {
-    text-align: center;
-    width: 100%;
-    padding: var(--spacing-2xl) 0;
-    gap: var(--spacing-lg);
-  }
+      text-align: center;
+      width: 100%;
+      gap: var(--spacing-lg);
+      padding: var(--spacing-2xl) 0;
+    }
   
   .benefit-item {
     justify-content: center;

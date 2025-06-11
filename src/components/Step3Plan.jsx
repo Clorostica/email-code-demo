@@ -156,9 +156,7 @@ function Step3Plan({ userId, onNext }) {
             <p style={detailStyle}>{products.monthly.trial_days}-day free trial</p>
           </label>
         </div>
-
-        <p>Cancel anytime.</p>
-
+          <p style={{ color: '#9890d6' }}>Cancel anytime.</p>
         <button
           onClick={() => {
             setClicked(true);

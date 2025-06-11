@@ -97,6 +97,7 @@ function Step2Verify({ email, onNext }) {
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: '24px',
+    color: '#fbbf24',
   };
 
   const inputStyle = {
@@ -112,18 +113,19 @@ function Step2Verify({ email, onNext }) {
     boxSizing: 'border-box',
   };
 
-  const buttonStyle = {
-    width: '100%',
-    padding: '12px',
-    backgroundColor: loading || !code.trim() ? '#988fd6' : '#007bff',
-    color: 'rgb(34, 1, 66)',
-    border: 'none',
-    borderRadius: '6px',
-    fontSize: '16px',
-    cursor: loading || !code.trim() ? 'not-allowed' : 'pointer',
-    marginBottom: '12px',
-    transition: 'background-color 0.3s',
-  };
+    const buttonStyle = {
+      width: '100%',
+      padding: '12px',
+      backgroundColor: loading || !code.trim() ? '#988fd6' : '#007bff',
+      color: 'rgb(34, 1, 66)',
+      border: 'none',
+      borderRadius: '6px',
+      fontSize: '16px',
+      cursor: loading || !code.trim() ? 'not-allowed' : 'pointer',
+      marginTop: '16px',      
+      marginBottom: '16px',   
+      transition: 'background-color 0.3s',
+    };
 
   const errorStyle = {
     backgroundColor: '#fee',

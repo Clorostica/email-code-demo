@@ -41,7 +41,7 @@ function App() {
 
   if (step === 3) {
     return (
-      <div style={{ padding: '40px 20px', position: 'relative', minHeight: '100vh' }}>
+      <div style={{ position: 'relative', minHeight: '100vh' }}>
         <div style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 999 }}>
           <a 
             onClick={goBackToStep2}
