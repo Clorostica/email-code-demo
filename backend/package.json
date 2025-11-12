@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Backend serverless para validación de código por email (Express en Vercel)",
   "type": "module",
-  "main": "api/server.js",
+  "main": "backend/api/server.js",
   "scripts": {
-    "dev": "node api/server.js",
-    "start": "node api/server.js"
+    "dev": "node backend/api/server.js",
+    "start": "node backend/api/server.js"
   },
   "dependencies": {
     "@vercel/node": "^3.0.0",
