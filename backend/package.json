@@ -1,0 +1,21 @@
+{
+  "name": "email-code-demo-backend",
+  "version": "1.0.0",
+  "description": "Backend server for email code validation demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "email",
+    "validation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

@@ -1,22 +1,16 @@
-const http = require('http');
-const url = require('url');
+const express = require('express');
+const cors = require('cors');
 
+const app = express();
 let emailMap = {};
 
-function sendResponse(res, statusCode, data) {
-  res.writeHead(statusCode, {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
-  });
-  res.end(JSON.stringify(data));
-}
+app.use(cors());
+app.use(express.json());
 
-function handleSendEmailValidationCode(req, res, query) {
-  const email = query.email;
+app.get('/api/send-email-validation-code', (req, res) => {
+  const email = req.query.email;
   if (!email || !email.includes('@')) {
-    return sendResponse(res, 400, { error: 'Invalid email address' });
+    return res.status(400).json({ error: 'Invalid email address' });
   }
 
   const code = '123456';
@@ -24,90 +18,45 @@ function handleSendEmailValidationCode(req, res, query) {
 
   setTimeout(() => delete emailMap[email], 5 * 60 * 1000);
 
-  sendResponse(res, 200, {});
-}
+  res.status(200).json({});
+});
 
-
-function handleValidateEmail(req, res, body) {
-  const { email, code } = body;
+app.post('/api/validate-email', (req, res) => {
+  const { email, code } = req.body;
   if (!email || !code) {
-    return sendResponse(res, 400, { error: 'Email and code are required' });
+    return res.status(400).json({ error: 'Email and code are required' });
   }
 
   if (!emailMap[email] || emailMap[email].code !== code) {
-    return sendResponse(res, 400, { error: 'Invalid code or email' });
+    return res.status(400).json({ error: 'Invalid code or email' });
   }
 
   delete emailMap[email];
   const userId = Math.floor(1000 + Math.random() * 9000);
-  sendResponse(res, 200, { user_id: userId });
-}
+  res.status(200).json({ user_id: userId });
+});
 
-
-function handleGetProducts(req, res) {
+app.get('/api/get-products', (req, res) => {
   const products = {
     year: { price: 50, trial_days: 14 },
     monthly: { price: 5, trial_days: 7 }
   };
-  sendResponse(res, 200, products);
-}
-
-
-function handleStartTrial(req, res, body) {
-  const { user_id, plan } = body;
-  if (!user_id || !plan) {
-    return sendResponse(res, 400, { error: 'Missing user_id or plan' });
-  }
-
-
-  sendResponse(res, 200, { success: true });
-}
-
-
-const API_HANDLERS = {
-  '/api/send-email-validation-code': handleSendEmailValidationCode,
-  '/api/validate-email': handleValidateEmail,
-  '/api/get-products': handleGetProducts,
-  '/api/start-trial': handleStartTrial
-};
-
-
-const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url, true);
-  const path = parsedUrl.pathname.replace(/\/+$/, '');
-  const method = req.method;
-  const query = parsedUrl.query;
-
-  if (method === 'OPTIONS') {
-    res.writeHead(204, {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Max-Age': 86400
-    });
-    res.end();
-    return;
-  }
-
-  let rawBody = '';
-  req.on('data', chunk => (rawBody += chunk.toString()));
-
-  req.on('end', () => {
-    const body = rawBody ? JSON.parse(rawBody) : {};
-    const handler = API_HANDLERS[path];
-
-    if (handler) {
-      if (method === 'GET') {
-        handler(req, res, query);
-      } else {
-        handler(req, res, body);
-      }
-    } else {
-      sendResponse(res, 404, { error: 'Endpoint not found' });
-    }
-  });
+  res.status(200).json(products);
 });
 
+app.post('/api/start-trial', (req, res) => {
+  const { user_id, plan } = req.body;
+  if (!user_id || !plan) {
+    return res.status(400).json({ error: 'Missing user_id or plan' });
+  }
+
+  res.status(200).json({ success: true });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Endpoint not found' });
+});
 
 const PORT = process.env.PORT || 8080;
-server.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
