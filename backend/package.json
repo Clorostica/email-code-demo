@@ -5,6 +5,7 @@
   "type": "module",
   "main": "backend/api/server.js",
   "scripts": {
+    "build": "echo 'No build needed'",
     "dev": "node backend/api/server.js",
     "start": "node backend/api/server.js"
   },
