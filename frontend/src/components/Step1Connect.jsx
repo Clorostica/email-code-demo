@@ -11,12 +11,14 @@ export function Step1Connect({ onNext }) {
       return;
     }
 
+    const API_URL = import.meta.env.VITE_API;
+
     setLoading(true);
     setError(null);
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/send-email-validation-code?email=${encodeURIComponent(
+        `${API_URL}/api/send-email-validation-code?email=${encodeURIComponent(
           email
         )}`
       );

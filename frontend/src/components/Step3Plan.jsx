@@ -5,9 +5,10 @@ export function Step3Plan({ userId, onNext, onBack }) {
   const [plan, setPlan] = useState("year");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API;
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/get-products")
+    fetch(`${API_URL}/api/get-products`)
       .then((res) => {
         if (!res.ok) throw new Error("Error loading plans");
         return res.json();
@@ -22,7 +23,7 @@ export function Step3Plan({ userId, onNext, onBack }) {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:8080/api/start-trial", {
+      const res = await fetch(`${API_URL}/api/start-trial`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

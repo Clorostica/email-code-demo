@@ -8,6 +8,8 @@ export function Step2Verify({ email, onNext, onBack }) {
   const [showCodePopup, setShowCodePopup] = useState(false);
   const countdownRef = useRef(null);
 
+  const API_URL = import.meta.env.VITE_API;
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCodePopup(true);
@@ -41,7 +43,7 @@ export function Step2Verify({ email, onNext, onBack }) {
     };
 
     try {
-      const res = await fetch("http://localhost:8080/api/validate-email", {
+      const res = await fetch(`${API_URL}/api/validate-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +78,7 @@ export function Step2Verify({ email, onNext, onBack }) {
     try {
       const payload = { email };
 
-      const res = await fetch("http://localhost:8080/api/resend-email-code", {
+      const res = await fetch(`${API_URL}/api/resend-email-code`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
