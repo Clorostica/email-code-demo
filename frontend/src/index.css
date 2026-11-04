@@ -808,3 +808,29 @@ body {
     max-width: 900px;
   }
 }
+
+/* Icons */
+.benefit-icon {
+  color: #1a1a2e;
+}
+
+.info-icon {
+  display: flex;
+  color: #fbbf24;
+}
+
+.success-icon {
+  color: #fbbf24;
+}
+
+.code-popup-header h3,
+.use-code-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.code-popup-header h3 {
+  justify-content: flex-start;
+}

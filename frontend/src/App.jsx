@@ -4,6 +4,7 @@ import { Step2Verify } from "./components/Step2Verify";
 import { Step3Plan } from "./components/Step3Plan";
 import { Step4Success } from "./components/Step4Success";
 import "./index.css";
+import { Gamepad2, Smartphone, Zap } from "lucide-react";
 
 export default function App() {
   const [step, setStep] = useState(1);
@@ -51,28 +52,25 @@ export default function App() {
         <div className="app-container">
           <div className="benefits-list">
             <div className="benefit-item">
-              <div className="benefit-icon">🎮</div>
+              <div className="benefit-icon"><Gamepad2 size={22} aria-hidden /></div>
               <div className="benefit-content">
-                <h3>Access to 100+ GAMES for FREE Thanks to ads</h3>
+                <h3>100+ games for free, supported by ads</h3>
               </div>
             </div>
 
             <div className="benefit-item">
-              <div className="benefit-icon">📱</div>
+              <div className="benefit-icon"><Smartphone size={22} aria-hidden /></div>
               <div className="benefit-content">
                 <h3>
-                  Log in across all your devices seamless experience everywhere
+                  Log in on all your devices and pick up where you left off
                 </h3>
               </div>
             </div>
 
             <div className="benefit-item">
-              <div className="benefit-icon">⚡</div>
+              <div className="benefit-icon"><Zap size={22} aria-hidden /></div>
               <div className="benefit-content">
-                <h3>
-                  Skip the line with customer support priority assistance when
-                  you need it
-                </h3>
+                <h3>Priority customer support when you need it</h3>
               </div>
             </div>
           </div>

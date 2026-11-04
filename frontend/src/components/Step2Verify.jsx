@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { Copy, Mail } from "lucide-react";
 
 export function Step2Verify({ email, onNext, onBack }) {
   const [code, setCode] = useState("");
@@ -112,7 +113,7 @@ export function Step2Verify({ email, onNext, onBack }) {
         >
           <div className="code-popup" onClick={(e) => e.stopPropagation()}>
             <div className="code-popup-header">
-              <h3>📧 New Email</h3>
+              <h3><Mail size={18} aria-hidden /> New email</h3>
               <button
                 className="close-popup"
                 onClick={() => setShowCodePopup(false)}
@@ -124,7 +125,7 @@ export function Step2Verify({ email, onNext, onBack }) {
               <p className="code-label">Your verification code:</p>
               <div className="code-display">123456</div>
               <button className="use-code-button" onClick={handleUseCode}>
-                📋 Copy & Use Code
+                <Copy size={16} aria-hidden /> Copy and use code
               </button>
             </div>
           </div>

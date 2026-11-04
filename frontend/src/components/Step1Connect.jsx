@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Lightbulb } from "lucide-react";
 
 export function Step1Connect({ onNext }) {
   const [email, setEmail] = useState("");
@@ -73,7 +74,7 @@ export function Step1Connect({ onNext }) {
       </button>
 
       <div className="info-box">
-        <span className="info-icon">💡</span>
+        <span className="info-icon"><Lightbulb size={20} aria-hidden /></span>
         <p>We'll send you a 6-digit verification code to verify your email</p>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PartyPopper } from "lucide-react";
 
 export function Step4Success() {
   const [confettiKey, setConfettiKey] = useState(0);
@@ -57,7 +58,7 @@ export function Step4Success() {
 
       <div className="success-content">
         <div className="success-icon-wrapper">
-          <div className="success-icon">🎉</div>
+          <div className="success-icon"><PartyPopper size={72} strokeWidth={1.5} aria-hidden /></div>
           <div className="success-glow"></div>
         </div>
 
@@ -67,9 +68,9 @@ export function Step4Success() {
 
         <div className="success-actions">
           <button onClick={handleCelebrate} className="celebrate-button">
-            🎊 Celebrate Again
+            Celebrate again
           </button>
-          <button className="dashboard-button">🚀 Go to Dashboard</button>
+          <button className="dashboard-button">Go to dashboard</button>
         </div>
       </div>
     </div>
